@@ -9,7 +9,31 @@ import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-  return <h4>navbar</h4>
+  return (
+    <NavContainer>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            <h3>Discovery</h3>
+          </Link>
+          <button type="button" className="nav-toggle">
+            <FaBars />
+          </button>
+        </div>
+          <ul className="nav-links">
+            {links.map((link) => {
+              const { id, url, text } = link
+              return (
+                <li>
+                  <Link to={url}>{text}</Link>
+                </li>
+              )
+            })}
+          </ul>
+          <CartButtons />
+      </div>
+    </NavContainer>
+  )
 }
 
 const NavContainer = styled.nav`
