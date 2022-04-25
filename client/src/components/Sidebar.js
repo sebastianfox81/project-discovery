@@ -10,10 +10,10 @@ import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
 
-  const isOpen = true
+  const { isSidebarOpen } = useProductsContext()
   return (
     <SidebarContainer>
-      <aside className={isOpen ? 'sidebar show-sidebar' : 'sidebar'}>
+      <aside className={isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
           <h3>Discover</h3>
           <button type='button' className='close-btn'><h3>X</h3></button>
