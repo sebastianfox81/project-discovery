@@ -23,11 +23,14 @@ export const ProductsProvider = ({ children }) => {
 
   const [ state, dispatch ] = useReducer(reducer, initialState)
 
-  const openSideBar = () => {
+  const openSidebar = () => {
     dispatch({ type: SIDEBAR_OPEN})
   }
+  const closeSidebar = () => {
+    dispatch({ type: SIDEBAR_CLOSE})
+  }
   return (
-    <ProductsContext.Provider value={{...state}}>
+    <ProductsContext.Provider value={{...state, closeSidebar, openSidebar}}>
       {children}
     </ProductsContext.Provider>
   )

@@ -10,20 +10,20 @@ import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
 
-  const { isSidebarOpen } = useProductsContext()
+  const { isSidebarOpen, closeSidebar } = useProductsContext()
   return (
     <SidebarContainer>
       <aside className={isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
           <h3>Discover</h3>
-          <button type='button' className='close-btn'><h3>X</h3></button>
+          <button type='button' className='close-btn' onClick={closeSidebar}><h3>X</h3></button>
         </div>
         <ul className="links">
           {links.map((link) => {
             const { id, text, url } = link;
             return (
             <li key={id}>
-              <Link to={url}>{text}</Link>
+              <Link to={url} onClick={closeSidebar}>{text}</Link>
             </li>
 
             )
