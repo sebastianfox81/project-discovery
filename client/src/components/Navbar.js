@@ -17,7 +17,7 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <h3>Discovery</h3>
+            <h3 className='title'>Discovy</h3>
           </Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
@@ -73,6 +73,9 @@ const NavContainer = styled.nav`
   }
   .cart-btn-wrapper {
     display: none;
+  }
+  .title {
+    color: var(--clr-primary-3);
   }
   @media (min-width: 992px) {
     .nav-toggle {
