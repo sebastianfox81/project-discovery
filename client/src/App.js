@@ -31,10 +31,6 @@ function App() {
           <Products />
         </Route>
         <Route exact path='/products/:id' children={<SingleProduct/>} />
-
-        <Route exact path='/'>
-          <Home />
-        </Route>
         <Route path='*'>
           <Error />
         </Route>

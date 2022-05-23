@@ -1,9 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Filters, ProductList, Sort, PageHero } from '../components'
+import { useProductsContext } from '../context/products_context'
 
 const ProductsPage = () => {
-  return <h4>products page</h4>
+
+  const { product } = useProductsContext()
+  return (
+    <Wrapper>
+      <PageHero product/>
+      <ProductList />
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
