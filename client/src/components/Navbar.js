@@ -17,7 +17,7 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <h3 className='title'>Discovy</h3>
+            <h3 className='title'>the guitar shop</h3>
           </Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />

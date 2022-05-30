@@ -15,7 +15,7 @@ const Sidebar = () => {
     <SidebarContainer>
       <aside className={isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className="sidebar-header">
-          <h3>Discover</h3>
+          <h3>The Guitar Shop</h3>
           <button type='button' className='close-btn' onClick={closeSidebar}><h3>X</h3></button>
         </div>
         <ul className="links">

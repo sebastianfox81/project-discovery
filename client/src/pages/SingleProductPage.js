@@ -15,7 +15,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
-  
+
   const { id } = useParams()
 
   const {
@@ -43,10 +43,10 @@ const SingleProductPage = () => {
     stock,
     stars,
     reviews,
-    id: sku,
-    company,
+    brand,
     images,
   } = product;
+
   return (
     <Wrapper>
       <PageHero title={name} product />
@@ -58,7 +58,7 @@ const SingleProductPage = () => {
           <ProductImages images={images} />
           <section className='content'>
             <h2>{name}</h2>
-            {/* <Stars stars={stars} reviews={reviews} /> */}
+            <Stars stars={stars} reviews={reviews} />
             <h5 className='price'>{formatPrice(price)}</h5>
             <p className='desc'>{description}</p>
             <p className='info'>
@@ -67,11 +67,11 @@ const SingleProductPage = () => {
             </p>
             <p className='info'>
               <span>SKU :</span>
-              {sku}
+              {id}
             </p>
             <p className='info'>
               <span>Brand :</span>
-              {company}
+              {brand}
             </p>
             <hr />
             {stock > 0 && <AddToCart product={product} />}

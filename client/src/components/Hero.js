@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import guitars from '../assets/guitars.webp'
 import heroBcg from '../assets/hero-bcg.jpeg'
 import heroBcg2 from '../assets/hero-bcg-2.jpeg'
 
@@ -9,22 +10,18 @@ const Hero = () => {
     <Wrapper className='section-center'>
     <article className='content'>
       <h1>
-        design your <br />
-        comfort zone
+        Explore <br />
+        our guitars
       </h1>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-        sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-        aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
-        alias?
+ We understand the power of music on the soul and the vehicle it provides for our sanity, health, and creativity. We want to help make that gift available to everyone. You don t have to be a rock star or a professional musician to enjoy the rewards of music participation. Find the perfect guitar for you or someone else who wants to benefit from this amazing gift!
       </p>
       <Link to='/products' className='btn hero-btn'>
         shop now
       </Link>
     </article>
     <article className='img-container'>
-      <img src={heroBcg} alt='nice table' className='main-img' />
-      {/* <img src={heroBcg2} alt='person working' className='accent-img' /> */}
+      <img src={guitars} alt='nice table' className='main-img' />
     </article>
   </Wrapper>
   )
@@ -70,14 +67,6 @@ const Wrapper = styled.section`
       border-radius: var(--radius);
       display: block;
       object-fit: cover;
-    }
-    .accent-img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 250px;
-      transform: translateX(-50%);
-      border-radius: var(--radius);
     }
   }
 `
