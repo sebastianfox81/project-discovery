@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
 
-  const { id } = useParams()
+  const { guitId } = useParams()
 
   const {
     singleProduct_loading: loading,
@@ -26,8 +26,8 @@ const SingleProductPage = () => {
   } = useProductsContext()
 
   useEffect(() => {
-    fetchSingleProduct(`${url}${id}`)
-  },[id])
+    fetchSingleProduct(`${url}${guitId}`)
+  },[guitId])
 
   if (loading) {
     return <Loading />
@@ -67,14 +67,14 @@ const SingleProductPage = () => {
             </p>
             <p className='info'>
               <span>SKU :</span>
-              {id}
+              {guitId}
             </p>
             <p className='info'>
               <span>Brand :</span>
               {brand}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} />}
+            {stock > 0 && <AddToCart product={product} id={guitId}/>}
           </section>
         </div>
       </div>
