@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import AmountButtons from './AmountButtons'
@@ -18,7 +19,10 @@ const CartItem = ({ id, image, name, price, amount}) => {
   return (
     <Wrapper>
       <div className="title">
+        <Link to={`/products/${id}`}>
         <img src={image} alt="img" />
+
+        </Link>
         <div>
           <h5 className="name">{name}</h5>
           <h5 className="price-small">{formatPrice(price)}</h5>
