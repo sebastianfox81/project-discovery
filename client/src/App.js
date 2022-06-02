@@ -7,7 +7,6 @@ import {
   Products,
   SingleProduct,
   Cart,
-  Checkout,
   PrivateRoute,
   Error,
 } from './pages'
@@ -31,9 +30,6 @@ function App() {
         <Route exact path='/products'>
           <Products />
         </Route>
-        <PrivateRoute exact path='/checkout'>
-          <Checkout />
-        </PrivateRoute>
         <Route exact path='/products/:guitId' children={<SingleProduct/>} />
         <Route path='*'>
           <Error />
@@ -41,6 +37,7 @@ function App() {
       </Switch>
       <Footer />
     </Router>
+
   )
 }
 
