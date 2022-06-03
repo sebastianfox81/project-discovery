@@ -10,9 +10,12 @@ import { UserProvider } from './context/user_context'
 ReactDOM.render(
     <UserProvider>
       <ProductsProvider>
+        <FilterProvider>
         <CartProvider>
           <App />
         </CartProvider>
+
+        </FilterProvider>
       </ProductsProvider>
     </UserProvider>,
   document.getElementById('root'),

@@ -82,6 +82,7 @@ const NavContainer = styled.nav`
   }
   .title {
     color: var(--clr-primary-3);
+    font-family: cursive;
   }
   @media (min-width: 992px) {
     .nav-toggle {

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { useFilterContext } from '../context/filter_context'
 import { useProductsContext } from '../context/products_context'
 import Product from './Product'
@@ -10,10 +9,11 @@ import ListView from './ListView'
 const ProductList = () => {
 
   const { products } = useProductsContext()
-
+  const { filtered_products } = useFilterContext()
   return (
     <Wrapper>
-      <div className='section-center featured'>
+      <GridView products={filtered_products}/>
+      {/* <div className='section-center featured'>
       {products.map((product) => {
 
         return (
@@ -21,7 +21,7 @@ const ProductList = () => {
         )
       })}
 
-      </div>
+      </div> */}
     </Wrapper>
   )
 }

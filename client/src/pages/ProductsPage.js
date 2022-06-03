@@ -4,13 +4,20 @@ import { Filters, ProductList, Sort, PageHero } from '../components'
 import { useProductsContext } from '../context/products_context'
 
 const ProductsPage = () => {
-
   const { product } = useProductsContext()
   return (
-    <Wrapper>
-      <PageHero product/>
-      <ProductList />
-    </Wrapper>
+    <main>
+      <PageHero product />
+      <Wrapper className="page">
+        <div className="section-center products">
+          <Filters />
+          <div>
+            <Sort />
+            <ProductList />
+          </div>
+        </div>
+      </Wrapper>
+    </main>
   )
 }
 

@@ -12,13 +12,34 @@ import {
 } from '../actions'
 import { useProductsContext } from './products_context'
 
-const initialState = {}
+const initialState = {
+  filtered_products: [],
+  all_products: [],
+  sort: 'price-lowest'
+}
 
 const FilterContext = React.createContext()
 
 export const FilterProvider = ({ children }) => {
+  const { products } = useProductsContext()
+  const [ state, dispatch ] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    dispatch({ type: LOAD_PRODUCTS, payload: products})
+  },[products])
+
+  useEffect(() => {
+    dispatch({ type: SORT_PRODUCTS})
+  },[products, state.sort])
+
+  const updateSort = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    dispatch({ type: UPDATE_SORT, payload: value })
+  }
+
   return (
-    <FilterContext.Provider value='filter context'>
+    <FilterContext.Provider value={{...state, updateSort}}>
       {children}
     </FilterContext.Provider>
   )
