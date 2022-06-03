@@ -1,27 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
-import { useProductsContext } from '../context/products_context'
-import Product from './Product'
 import GridView from './GridView'
-import ListView from './ListView'
 
 const ProductList = () => {
 
-  const { products } = useProductsContext()
   const { filtered_products } = useFilterContext()
   return (
     <Wrapper>
       <GridView products={filtered_products}/>
-      {/* <div className='section-center featured'>
-      {products.map((product) => {
-
-        return (
-          <Product key={product.id} {...product}/>
-        )
-      })}
-
-      </div> */}
     </Wrapper>
   )
 }

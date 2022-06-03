@@ -7,7 +7,6 @@ import {
   Products,
   SingleProduct,
   Cart,
-  PrivateRoute,
   Error,
 } from './pages'
 

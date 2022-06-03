@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
 
 const AddToCart = ({ product, id }) => {
   const { addToCart } = useCartContext();
-  const { stock, name } = product
+  const { stock } = product
   const [ amount, setAmount ] = useState(1)
 
 
@@ -29,7 +28,7 @@ const AddToCart = ({ product, id }) => {
       return tempAmount
     })
   }
-  
+
   return (
     <Wrapper>
       <div className="btn-container">
