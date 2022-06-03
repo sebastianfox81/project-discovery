@@ -13,7 +13,7 @@ const Filters = () => {
   } = useFilterContext()
 
   const brands = getUniqueValues(all_products, 'brand')
-
+  const categories = getUniqueValues(all_products, 'category')
   return (
     <Wrapper>
       <div className="content">
@@ -47,6 +47,18 @@ const Filters = () => {
             </select>
           </div>
           {/* end of brands */}
+          {/* start of categories */}
+          <div className="form-control">
+            <h5>category</h5>
+            {categories.map((c, index) => {
+              return (
+                <button key={index} name="category" type="button"  onClick={updateFilters} className={category === c.toLowerCase() ? 'active' : null}>
+                  {c}
+                </button>
+              )
+            })}
+          </div>
+          {/* end of categories */}
           {/* price */}
           <div className="form-control">
             <p className="price">{formatPrice(price)}</p>
@@ -61,7 +73,9 @@ const Filters = () => {
           </div>
           {/* end of price */}
         </form>
-        <button className="clear-btn" onClick={clearFilters}>clear filters</button>
+        <button className="clear-btn" onClick={clearFilters}>
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )
