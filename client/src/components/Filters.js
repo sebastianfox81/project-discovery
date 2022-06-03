@@ -6,11 +6,13 @@ import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
   const {
-    filters: { text, company, category, min_price, max_price, price },
+    filters: { text, brand, category, min_price, max_price, price },
     updateFilters,
     clearFilters,
     all_products,
   } = useFilterContext()
+
+  const brands = getUniqueValues(all_products, 'brand')
 
   return (
     <Wrapper>
@@ -26,7 +28,40 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+          {/* brands */}
+          <div className="form-control">
+            <h5>brand</h5>
+            <select
+              name="brand"
+              value={brand}
+              onChange={updateFilters}
+              className="brand"
+            >
+              {brands.map((brand, index) => {
+                return (
+                  <option key={index} value={brand}>
+                    {brand}
+                  </option>
+                )
+              })}
+            </select>
+          </div>
+          {/* end of brands */}
+          {/* price */}
+          <div className="form-control">
+            <p className="price">{formatPrice(price)}</p>
+            <input
+              type="range"
+              name="price"
+              onChange={updateFilters}
+              min={min_price}
+              max={max_price}
+              value={price}
+            />
+          </div>
+          {/* end of price */}
         </form>
+        <button className="clear-btn" onClick={clearFilters}>clear filters</button>
       </div>
     </Wrapper>
   )
@@ -65,7 +100,7 @@ const Wrapper = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .company {
+  .brand {
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;

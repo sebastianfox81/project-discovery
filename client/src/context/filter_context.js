@@ -18,7 +18,7 @@ const initialState = {
   sort: 'price-lowest',
   filters: {
     text: '',
-    company: 'all',
+    brand: 'all',
     category: 'all',
     min_price: 0,
     max_price: 0,
@@ -48,13 +48,18 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_SORT, payload: value })
   }
   const updateFilters = (e) => {
-    const name = e.target.name
-    const value = e.target.value
+    let name = e.target.name
+    let value = e.target.value
+    if (name === 'price') {
+      value = Number(value)
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value}})
   }
-
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS})
+  }
   return (
-    <FilterContext.Provider value={{...state, updateSort, updateFilters}}>
+    <FilterContext.Provider value={{...state, updateSort, updateFilters, clearFilters}}>
       {children}
     </FilterContext.Provider>
   )
