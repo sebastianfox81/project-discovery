@@ -67,9 +67,29 @@ const filter_reducer = (state, action) => {
     }
   }
   if( action.type === FILTER_PRODUCTS) {
-    console.log('filtering products')
+    const { all_products } = state
+    const { text, brand, price } = state.filters
+
+    let tempProducts = [...all_products]
+    // filter text
+    if (text) {
+      tempProducts = tempProducts.filter((product) => {
+        return product.name.toLowerCase().includes(text)
+      })
+    }
+    // filter brand
+    if (brand !== 'all') {
+      tempProducts = tempProducts.filter((product) => {
+        return product.brand === brand
+      })
+    }
+    // filter price
+    tempProducts = tempProducts.filter((product) => {
+      return product.price <= price
+    })
     return {
-      ...state
+      ...state,
+      filtered_products: tempProducts
     }
   }
   if (action.type === CLEAR_FILTERS) {
