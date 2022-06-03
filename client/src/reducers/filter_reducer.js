@@ -11,10 +11,15 @@ import {
 
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
+    let maxPrice = action.payload.map((product) => {
+      return product.price
+    })
+    maxPrice = Math.max(...maxPrice)
     return {
       ...state,
       filtered_products: [...action.payload],
-      all_products: [...action.payload]
+      all_products: [...action.payload],
+      filters: {...state.filters, max_price: maxPrice, price: maxPrice}
     }
   }
   if (action.type === UPDATE_SORT) {
@@ -49,6 +54,22 @@ const filter_reducer = (state, action) => {
     return {
       ...state,
       filtered_products: tempProducts
+    }
+  }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        [name]: value
+      }
+    }
+  }
+  if( action.type === FILTER_PRODUCTS) {
+    console.log('filtering products')
+    return {
+      ...state
     }
   }
   throw new Error(`No Matching "${action.type}" - action type`)
