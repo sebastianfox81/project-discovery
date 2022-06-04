@@ -20,25 +20,24 @@ const initialState = {
     category: 'all',
     min_price: 0,
     max_price: 0,
-    price: 0
-
-  }
+    price: 0,
+  },
 }
 
 const FilterContext = React.createContext()
 
 export const FilterProvider = ({ children }) => {
   const { products } = useProductsContext()
-  const [ state, dispatch ] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    dispatch({ type: LOAD_PRODUCTS, payload: products})
-  },[products])
+    dispatch({ type: LOAD_PRODUCTS, payload: products })
+  }, [products])
 
   useEffect(() => {
     dispatch({ type: FILTER_PRODUCTS })
-    dispatch({ type: SORT_PRODUCTS})
-  },[products, state.sort, state.filters])
+    dispatch({ type: SORT_PRODUCTS })
+  }, [products, state.sort, state.filters])
 
   const updateSort = (e) => {
     const value = e.target.value
@@ -53,13 +52,15 @@ export const FilterProvider = ({ children }) => {
     if (name === 'price') {
       value = Number(value)
     }
-    dispatch({ type: UPDATE_FILTERS, payload: { name, value}})
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
   const clearFilters = () => {
-    dispatch({ type: CLEAR_FILTERS})
+    dispatch({ type: CLEAR_FILTERS })
   }
   return (
-    <FilterContext.Provider value={{...state, updateSort, updateFilters, clearFilters}}>
+    <FilterContext.Provider
+      value={{ ...state, updateSort, updateFilters, clearFilters }}
+    >
       {children}
     </FilterContext.Provider>
   )

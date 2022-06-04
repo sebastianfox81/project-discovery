@@ -5,10 +5,9 @@ import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
 
 const AddToCart = ({ product, id }) => {
-  const { addToCart } = useCartContext();
+  const { addToCart } = useCartContext()
   const { stock } = product
-  const [ amount, setAmount ] = useState(1)
-
+  const [amount, setAmount] = useState(1)
 
   const increase = () => {
     setAmount((oldAmount) => {
@@ -37,7 +36,11 @@ const AddToCart = ({ product, id }) => {
           increase={increase}
           decrease={decrease}
         />
-        <Link to='/cart' className='btn' onClick={() => addToCart(id, amount, product)}>
+        <Link
+          to="/cart"
+          className="btn"
+          onClick={() => addToCart(id, amount, product)}
+        >
           add to cart
         </Link>
       </div>

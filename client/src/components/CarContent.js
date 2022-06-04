@@ -12,19 +12,19 @@ const CartContent = () => {
   return (
     <Wrapper className="section section-center">
       <CartColumns />
-      {
-        cart.map((item) => {
-          return (
-            <CartItem key={item.id} {...item}/>
-          )
-        })
-      }
-      <hr/>
+      {cart.map((item) => {
+        return <CartItem key={item.id} {...item} />
+      })}
+      <hr />
       <div className="link-container">
-        <Link to='/products' className="btn">
+        <Link to="/products" className="btn">
           continue shopping
         </Link>
-        <button type='button' className='link-btn clear-btn' onClick={clearCart}>
+        <button
+          type="button"
+          className="link-btn clear-btn"
+          onClick={clearCart}
+        >
           clear shopping cart
         </button>
       </div>

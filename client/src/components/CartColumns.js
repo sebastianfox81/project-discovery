@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CartColumns = () => {
   return (
-    <Wrapper >
+    <Wrapper>
       <div className="content">
         <h5>item</h5>
         <h5>price</h5>
@@ -11,7 +11,7 @@ const CartColumns = () => {
         <h5>subtotal</h5>
         <span></span>
       </div>
-      <hr/>
+      <hr />
     </Wrapper>
   )
 }

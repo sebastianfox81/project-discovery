@@ -2,14 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 const Footer = () => {
   return (
-  <Wrapper>
-    <h5>
-      &copy; {new Date().getFullYear()}
-    <span> The Guitar Shop</span>
-    </h5>
-    <h5>All Rights Reserved</h5>
-  </Wrapper>
-
+    <Wrapper>
+      <h5>
+        &copy; {new Date().getFullYear()}
+        <span> The Guitar Shop</span>
+      </h5>
+      <h5>All Rights Reserved</h5>
+    </Wrapper>
   )
 }
 

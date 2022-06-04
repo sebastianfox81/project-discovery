@@ -7,25 +7,24 @@ import {
 } from '../actions'
 
 const cart_reducer = (state, action) => {
-
   if (action.type === ADD_TO_CART) {
     const { id, amount, product } = action.payload
     const tempItem = state.cart.find((item) => {
       return item.id === id
     })
-    if(tempItem) {
+    if (tempItem) {
       const tempCart = state.cart.map((cartItem) => {
-        if(cartItem.id === id) {
+        if (cartItem.id === id) {
           let newAmount = cartItem.amount + amount
-          if(newAmount > cartItem.max) {
+          if (newAmount > cartItem.max) {
             newAmount = cartItem.max
           }
-          return {...cartItem, amount: newAmount}
+          return { ...cartItem, amount: newAmount }
         } else {
           return cartItem
         }
       })
-      return {...state, cart: tempCart}
+      return { ...state, cart: tempCart }
     } else {
       const newItem = {
         id: id,
@@ -33,11 +32,11 @@ const cart_reducer = (state, action) => {
         amount,
         image: product.images[0].url,
         price: product.price,
-        max: product.stock
+        max: product.stock,
       }
       return {
         ...state,
-        cart: [...state.cart, newItem]
+        cart: [...state.cart, newItem],
       }
     }
   }
@@ -47,13 +46,13 @@ const cart_reducer = (state, action) => {
     })
     return {
       ...state,
-      cart: tempCart
+      cart: tempCart,
     }
   }
   if (action.type === CLEAR_CART) {
     return {
       ...state,
-      cart: []
+      cart: [],
     }
   }
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
@@ -65,38 +64,40 @@ const cart_reducer = (state, action) => {
           if (newAmount > item.max) {
             newAmount = item.max
           }
-          return {...item, amount: newAmount}
+          return { ...item, amount: newAmount }
         }
         if (type === 'dec') {
           let newAmount = item.amount - 1
           if (newAmount < 1) {
             newAmount = 1
           }
-          return {...item, amount: newAmount}
+          return { ...item, amount: newAmount }
         }
       }
-        return item
-      
+      return item
     })
     return {
       ...state,
-      cart: tempCart
+      cart: tempCart,
     }
   }
   if (action.type === COUNT_CART_TOTALS) {
-    const totals = state.cart.reduce((acc, curr) => {
-      const { amount, price } = curr
-      acc.total_items += amount
-      acc.total_amount += amount * price
-      return acc
-    }, {
-      total_items: 0,
-      total_amount: 0
-    })
+    const totals = state.cart.reduce(
+      (acc, curr) => {
+        const { amount, price } = curr
+        acc.total_items += amount
+        acc.total_amount += amount * price
+        return acc
+      },
+      {
+        total_items: 0,
+        total_amount: 0,
+      },
+    )
     return {
       ...state,
       total_items: totals.total_items,
-      total_amount: totals.total_amount
+      total_amount: totals.total_amount,
     }
   }
   return state

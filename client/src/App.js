@@ -1,15 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-import {
-  Home,
-  About,
-  Products,
-  SingleProduct,
-  Cart,
-  Error,
-} from './pages'
-
+import { Home, About, Products, SingleProduct, Cart, Error } from './pages'
 
 function App() {
   return (
@@ -17,26 +9,25 @@ function App() {
       <Navbar />
       <Sidebar />
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path='/about'>
+        <Route exact path="/about">
           <About />
         </Route>
-        <Route exact path='/cart'>
+        <Route exact path="/cart">
           <Cart />
         </Route>
-        <Route exact path='/products'>
+        <Route exact path="/products">
           <Products />
         </Route>
-        <Route exact path='/products/:guitId' children={<SingleProduct/>} />
-        <Route path='*'>
+        <Route exact path="/products/:guitId" children={<SingleProduct />} />
+        <Route path="*">
           <Error />
         </Route>
       </Switch>
       <Footer />
     </Router>
-
   )
 }
 

@@ -51,7 +51,13 @@ const Filters = () => {
             <h5>category</h5>
             {categories.map((c, index) => {
               return (
-                <button key={index} name="category" type="button"  onClick={updateFilters} className={category === c.toLowerCase() ? 'active' : null}>
+                <button
+                  key={index}
+                  name="category"
+                  type="button"
+                  onClick={updateFilters}
+                  className={category === c.toLowerCase() ? 'active' : null}
+                >
                   {c}
                 </button>
               )

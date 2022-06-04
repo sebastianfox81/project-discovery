@@ -4,11 +4,10 @@ import { useFilterContext } from '../context/filter_context'
 import GridView from './GridView'
 
 const ProductList = () => {
-
   const { filtered_products } = useFilterContext()
   return (
     <Wrapper>
-      <GridView products={filtered_products}/>
+      <GridView products={filtered_products} />
     </Wrapper>
   )
 }

@@ -5,23 +5,28 @@ import guitars from '../assets/guitars.webp'
 
 const Hero = () => {
   return (
-    <Wrapper className='section-center'>
-    <article className='content'>
-      <h1>
-        Explore <br />
-        our guitars
-      </h1>
-      <p>
- We understand the power of music on the soul and the vehicle it provides for our sanity, health, and creativity. We want to help make that gift available to everyone. You don t have to be a rock star or a professional musician to enjoy the rewards of music participation. Find the perfect guitar for you or someone else who wants to benefit from this amazing gift!
-      </p>
-      <Link to='/products' className='btn hero-btn'>
-        shop now
-      </Link>
-    </article>
-    <article className='img-container'>
-      <img src={guitars} alt='nice table' className='main-img' />
-    </article>
-  </Wrapper>
+    <Wrapper className="section-center">
+      <article className="content">
+        <h1>
+          Explore <br />
+          our guitars
+        </h1>
+        <p>
+          We understand the power of music on the soul and the vehicle it
+          provides for our sanity, health, and creativity. We want to help make
+          that gift available to everyone. You don t have to be a rock star or a
+          professional musician to enjoy the rewards of music participation.
+          Find the perfect guitar for you or someone else who wants to benefit
+          from this amazing gift!
+        </p>
+        <Link to="/products" className="btn hero-btn">
+          shop now
+        </Link>
+      </article>
+      <article className="img-container">
+        <img src={guitars} alt="nice table" className="main-img" />
+      </article>
+    </Wrapper>
   )
 }
 

@@ -5,40 +5,32 @@ import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
-import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-
   const { openSidebar } = useProductsContext()
-  const { myUser } = useUserContext()
 
   return (
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <h3 className='title'>the guitar shop</h3>
+            <h3 className="title">the guitar shop</h3>
           </Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
-          <ul className="nav-links">
-            {links.map((link) => {
-              const { id, url, text } = link
-              return (
-                <li key={id}>
-                  <Link to={url}>{text}</Link>
-                </li>
-              )
-            })}
-            {
-              myUser && <li>
-                <Link to='/checkout'>checkout</Link>
+        <ul className="nav-links">
+          {links.map((link) => {
+            const { id, url, text } = link
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
               </li>
-            }
-          </ul>
-          <CartButtons />
+            )
+          })}
+        </ul>
+        <CartButtons />
       </div>
     </NavContainer>
   )

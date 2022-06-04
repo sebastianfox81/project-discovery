@@ -15,7 +15,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const SingleProductPage = () => {
-
   const { guitId } = useParams()
 
   const {
@@ -27,7 +26,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${guitId}`)
-  },[guitId])
+  }, [guitId])
 
   if (loading) {
     return <Loading />
@@ -36,45 +35,37 @@ const SingleProductPage = () => {
     return <Error />
   }
 
-  const {
-    name,
-    price,
-    description,
-    stock,
-    stars,
-    reviews,
-    brand,
-    images,
-  } = product;
+  const { name, price, description, stock, stars, reviews, brand, images } =
+    product
 
   return (
     <Wrapper>
       <PageHero title={name} product />
-      <div className='section section-center page'>
-        <Link to='/products' className='btn'>
+      <div className="section section-center page">
+        <Link to="/products" className="btn">
           back to products
         </Link>
-        <div className='product-center'>
+        <div className="product-center">
           <ProductImages images={images} />
-          <section className='content'>
+          <section className="content">
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className='price'>{formatPrice(price)}</h5>
-            <p className='desc'>{description}</p>
-            <p className='info'>
+            <h5 className="price">{formatPrice(price)}</h5>
+            <p className="desc">{description}</p>
+            <p className="info">
               <span>Available : </span>
               {stock > 0 ? 'In stock' : 'out of stock'}
             </p>
-            <p className='info'>
+            <p className="info">
               <span>SKU :</span>
               {guitId}
             </p>
-            <p className='info'>
+            <p className="info">
               <span>Brand :</span>
               {brand}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} id={guitId}/>}
+            {stock > 0 && <AddToCart product={product} id={guitId} />}
           </section>
         </div>
       </div>
