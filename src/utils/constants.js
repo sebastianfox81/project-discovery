@@ -12,7 +12,7 @@ export const links = [
 ]
 
 export const products_url =
-  'http://nacho-guitar-shop.netlify.app/.netlify/functions/1-airtable'
+  'https://nacho-guitar-shop.netlify.app/.netlify/functions/1-airtable'
 
 export const single_product_url =
-  'http://nacho-guitar-shop.netlify.app/.netlify/functions/1-airtable?id='
+  'https://nacho-guitar-shop.netlify.app/.netlify/functions/1-airtable?id='
