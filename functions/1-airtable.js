@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
     }
   }
   try {
-    const { records } = await airtable.list()
+    const { records } = await airtable.list({ maxRecords: 100, pageSize: 100})
     const products = records.map((product) => {
       const { id } = product
       const { name, brand, images, price, featured, category } = product.fields
